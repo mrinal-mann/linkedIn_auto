@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LinkedIn Message Assistant</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- The CSS will be injected by webpack -->
+  </head>
+  <body>
+    <div class="popup-container">
+      <header>
+        <h1>LinkedIn Assistant</h1>
+      </header>
+
+      <section class="stats-section">
+        <h2>Message Statistics</h2>
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-label">High Priority</span>
+            <span id="high-count" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Total Messages</span>
+            <span id="total-count" class="stat-value">0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sort-section">
+        <h2>Message Prioritization</h2>
+        <div class="sort-container">
+          <button id="rule-sort" class="primary-button">Rule-Based</button>
+          <button id="ai-sort" class="primary-button">AI-Powered</button>
+        </div>
+        <div id="sort-status" class="sort-status"></div>
+      </section>
+
+      <section class="spam-detection-section">
+        <h2>Advanced Filtering</h2>
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="spam-toggle" />
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-label">Detect Spam Messages</span>
+        </div>
+      </section>
+
+      <section class="automation-section">
+        <h2>Custom Keywords</h2>
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="automation-toggle" />
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-label">Enable Custom Filtering</span>
+        </div>
+
+        <div id="automation-settings" class="automation-settings hidden">
+          <h3>Priority Keywords</h3>
+
+          <div class="template-section">
+            <div class="input-group">
+              <input
+                type="text"
+                id="priority-input"
+                placeholder="Add priority keyword..."
+              />
+              <button id="add-priority" class="primary-button">Add</button>
+            </div>
+            <div id="priority-tags-list" class="priority-tags-list">
+              <!-- Priority tag items will be added here dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="important-contacts-section">
+        <h2>VIP Contacts</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            id="contact-input"
+            placeholder="Add important contact..."
+          />
+          <button id="add-contact" class="primary-button">Add</button>
+        </div>
+        <div id="contacts-list" class="contacts-list">
+          <!-- Contact items will be added here dynamically -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts will be injected by webpack -->
+  </body>
+</html>
