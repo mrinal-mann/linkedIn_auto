@@ -1,16 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "LinkedIn Automation Tool",
+  "name": "LinkedIn Automation",
   "version": "1.0",
   "description": "Messages automation",
-  "permissions": [
-    "tabs",
-    "scripting",
-    "storage"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "permissions": ["tabs", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
@@ -24,8 +18,8 @@
     "default_popup": "popup.html"
   },
   "icons": {
-    "16": "./imgs/ln.png",
-    "48": "./imgs/ln.png",
-    "128": "./imgs/ln.png"
+    "16": "./imgs/In.png",
+    "48": "./imgs/In.png",
+    "128": "./imgs/In.png"
   }
 }
