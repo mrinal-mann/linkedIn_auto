@@ -1,13 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
-
 app.use(express.json());
+app.use(cors());
+
+const PORT = process.env.PORT || 3001;
+
 const GEMINI_API_KEY = "AIzaSyAevQIxTA2ssCK_qkCCmSs8RhexbWiuWbE";
 console.log("GEMINI_API_KEY", GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
@@ -78,6 +81,6 @@ Kindly tell if the preview text is of high priority. Answer "yes" or "no" and pr
   }
 });
 
-app.listen(port, () => {
-  console.log(`Gemini API Key Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

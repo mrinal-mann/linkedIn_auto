@@ -3,15 +3,17 @@
   "name": "LinkedIn Automation",
   "version": "1.0",
   "description": "Messages automation",
-  "permissions": ["tabs", "scripting", "storage"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["tabs", "scripting", "storage", "activeTab"],
+  "host_permissions": ["*://*.linkedin.com/*"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["main.js"]
+      "matches": ["*://*.linkedin.com/*"],
+      "js": ["main.js"],
+      "run_at": "document_end"
     }
   ],
   "action": {

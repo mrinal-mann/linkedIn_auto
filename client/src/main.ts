@@ -15,7 +15,9 @@ class LinkedInMessagesManager {
     this.uiManager = new UIManager();
     this.messageManager = new MessageManager();
     this.sortManager = new SortManager();
-    this.observerManager = new ObserverManager(() => this.handleUrlOrMessageChange());
+    this.observerManager = new ObserverManager(() =>
+      this.handleUrlOrMessageChange()
+    );
 
     // Listen for messages from the popup
     chrome.runtime.onMessage.addListener(this.handleMessages.bind(this));
@@ -34,7 +36,7 @@ class LinkedInMessagesManager {
     message: any,
     sender: chrome.runtime.MessageSender,
     sendResponse: (response?: any) => void
-  ): void {
+  ): boolean | void {
     if (message.action === "toggleSort") {
       this.toggleSort();
       sendResponse({ success: true, isSorted: this.isSorted });
@@ -50,6 +52,22 @@ class LinkedInMessagesManager {
     } else if (message.action === "extractMessages") {
       this.messageManager.extractMessages();
       sendResponse({ success: true });
+    } else if (message.action === "analyzeMessages") {
+      const messages = this.messageManager.extractMessages();
+      if (messages.length > 0) {
+        this.sortManager
+          .analyzeMessages(messages, message.method || "rule")
+          .then(() => {
+            sendResponse({ success: true });
+          })
+          .catch((error) => {
+            console.error("Error analyzing messages:", error);
+            sendResponse({ success: false, error: error.message });
+          });
+        return true; // Keep the message channel open for async response
+      } else {
+        sendResponse({ success: false, error: "No messages found" });
+      }
     }
   }
 
