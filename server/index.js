@@ -11,7 +11,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3001;
 
-const GEMINI_API_KEY = "AIzaSyAevQIxTA2ssCK_qkCCmSs8RhexbWiuWbE";
+const GEMINI_API_KEY = "";
 console.log("GEMINI_API_KEY", GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
