@@ -1,17 +1,20 @@
 # LinkedIn Automation Tool
 
-A modern web application built with Node.js, TypeScript, and React for automating LinkedIn tasks and managing professional networking activities.
+A Chrome extension built with TypeScript and Node.js for automating LinkedIn tasks and managing professional networking activities.
 
 ## Tech Stack
 
-- **Backend**: Node.js, TypeScript, Express
-- **Frontend**: React, TypeScript
+- **Frontend**: TypeScript, Webpack
+- **Backend**: Node.js, Express
+- **AI Integration**: Google Generative AI
+- **API**: LinkedIn API, Axios
 
 ## Prerequisites
 
 - Node.js (v16 or higher)
 - npm or yarn
-
+- Chrome browser
+- LinkedIn account
 
 ## Getting Started
 
@@ -36,27 +39,50 @@ cd client
 npm install
 ```
 
-
 ### Running the Application
 
 ```bash
-# Start backend (development mode)
+# Start backend
 cd server
-npm run dev
-
-# Start frontend
-cd client
 npm start
+
+# Build frontend (Chrome extension)
+cd client
+npm run build
 ```
+
+### Loading the Extension in Chrome
+
+1. Open Chrome and go to `chrome://extensions/`
+2. Enable "Developer mode" in the top right
+3. Click "Load unpacked" and select the `client/dist` directory
 
 ## Features
 
-- 🔐 Secure LinkedIn OAuth authentication
-- 🤖 Automated profile management
-- 👥 Connection request automation
-- 📊 Post scheduling and analytics
-- 📈 Performance tracking dashboard
-- 🔄 Automated engagement features
+- 🤖 AI-powered LinkedIn automation
+- 🛡️ Smart spam detection and filtering
+- 📊 AI message analysis and categorization
+- 📱 Intelligent message sorting and prioritization
+
+## Project Structure
+
+```
+linkedIn_auto/
+├── client/                 # Chrome extension frontend
+│   ├── src/               # TypeScript source files
+│   ├── public/            # Static assets
+│   └── webpack.config.js  # Webpack configuration
+└── server/               # Node.js backend
+    ├── index.js         # Main server file
+    └── package.json     # Backend dependencies
+```
+
+## Development
+
+- Frontend is built with TypeScript and bundled using Webpack
+- Backend uses Express.js with Google's Generative AI integration
+- Chrome extension architecture for LinkedIn automation
+- AI-powered spam detection and message analysis system
 
 ## Contributing
 
